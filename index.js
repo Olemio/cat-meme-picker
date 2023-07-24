@@ -4,12 +4,12 @@ const emotionRadios = document.getElementById('emotion-radios')
 const getImageBtn = document.getElementById('get-image-btn')
 const gifsOnlyOption = document.getElementById('gifs-only-option')
 const memeModalInner = document.getElementById('meme-modal-inner')
-const memeModal = document.getElementById('meme-modal')
-const body = document.getElementById("body")
+const memeCloseModalBtn = document.getElementById('meme-modal.close-btn')
+const memeModalContainer = document.getElementById("meme-modal-container")
 
 emotionRadios.addEventListener('change', highlightCheckedOption)
 
-body.addEventListener('click', closeModal)
+memeModalContainer.addEventListener('click', closeModal)
 
 getImageBtn.addEventListener('click', renderCat)
 
@@ -22,13 +22,17 @@ function highlightCheckedOption(e){
 }
 
 function closeModal(e){
-    if(e.target.id !== "get-image-btn" && e.target.id !== "meme-modal" && e.target.className !== "cat-img") {
-        memeModal.style.display = 'none'
+    if(e.target.id === "meme-modal-close-btn" || e.target.id === "meme-modal-container") {
+        memeModalContainer.style.display = 'none'
     }
+    
 }
 
 function renderCat(){
     const catObject = getSingleCatObject()
+    if(!catObject) {
+        return // return nothing if no emotion selected by user 
+    }
     memeModalInner.innerHTML =  `
         <img 
         class="cat-img" 
@@ -36,12 +40,16 @@ function renderCat(){
         alt="${catObject.alt}"
         >
         `
-    memeModal.style.display = 'flex'
+    memeModalContainer.style.display = 'flex'
 }
 
 function getSingleCatObject(){
     const catsArray = getMatchingCatsArray()
-    
+
+    // is user has not selected emotion
+    if(!catsArray) {
+        return alert("Select an emotion first!")
+    }
     if(catsArray.length === 1){
         return catsArray[0]
     }

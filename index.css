@@ -29,7 +29,7 @@ h3{
 /* layout */
 
 header{
-    background-color: #67595E;
+    background-color: #52796f;
 }
 
 .header-inner{
@@ -87,10 +87,10 @@ label{
 }
 
 .highlight{
-    background-color: #fff0ee;
-    color: #bd301d;
+    background-color: #cad2c5;
+    color: #222;
     font-weight: bold;
-    accent-color: #bd301d;
+    accent-color: #222;
 }
 
 input[type="radio"]{
@@ -110,8 +110,8 @@ input[type="radio"]{
 }
 
 .get-image-btn{
-    background-color: #67595e;
-    color: #eed6d3;
+    background-color: #52796f;
+    color: #cad2c5;
     padding: 15px 19px;
     font-size: 24px;
     border: none;
@@ -120,21 +120,28 @@ input[type="radio"]{
 }
 
 /* modal */
-  
-.meme-modal{
+#meme-modal-container {
     display: none; /*flex when displayed*/
     position: fixed;
-    margin: auto;
-    top: 80px;
+    background-color: rgba(0, 0, 0, 0.5);
+    bottom: 0;
     left: 0;
+    top: 0;
     right: 0;
+}
+
+.meme-modal{
+    display: flex; 
+    position: relative;
+    margin: auto;
+    top: -10px;
     align-items: center;
     justify-content: center;
-    border: 1px solid #67595e;
+    border: 1px solid #2f3e46;
     border-radius: 5px;
     width: 420px;
     height: 490px;
-    background-color: #fff0ee;
+    background-color: #cad2c5;
 }
 
 .cat-img{
@@ -148,8 +155,8 @@ input[type="radio"]{
     top: 2%;
     right: 2%;
     background-color: transparent;
-    border: 2px solid #555;
-    color: #555;
+    border: 2px solid #2f3e46;
+    color: #2f3e46;
     border-radius: 50%;
     padding: 2px 6px;
     font-size: 14px;
