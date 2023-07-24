@@ -49,11 +49,9 @@ function getSingleCatObject(){
     // is user has not selected emotion
     if(!catsArray) {
         return alert("Select an emotion first!")
-    }
-    if(catsArray.length === 1){
+    } else if(catsArray.length === 1){
         return catsArray[0]
-    }
-    else{
+    } else{
         const randomNumber = Math.floor(Math.random() * catsArray.length)
         return catsArray[randomNumber]
     }
@@ -68,8 +66,7 @@ function getMatchingCatsArray(){
             
             if(isGif){
                 return cat.emotionTags.includes(selectedEmotion) && cat.isGif
-            }
-            else{
+            } else {
                 return cat.emotionTags.includes(selectedEmotion)
             }            
         })
